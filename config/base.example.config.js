@@ -10,7 +10,8 @@ const mdContent = fs.readFileSync(paths.exampleMdPath, 'utf-8');
 
 const config = {
     entry: [
-        path.resolve(examplePath, 'index.js')
+        // path.resolve(examplePath, 'index.js'),
+        path.resolve(examplePath, 'index.tsx'),
     ],
     module: {
         rules: [{
@@ -31,7 +32,12 @@ const config = {
     ],
     output: {
         path: staticPath,
-        filename: 'index.js'
+        // filename: 'index.js'
+        filename: '[name].bundle.js',
+        chunkFilename: '[id].chunk.js',
+    },
+    resolve: {
+        extensions: ['.ts', '.tsx', '.js', '.mjs'],
     }
 };
 

@@ -1,23 +1,68 @@
 {
     "compilerOptions": {
+        "target": "es5",
+        // "target": "es2020",
+        "module": "commonjs",
+        "allowJs": false,
         "esModuleInterop": true,
-        "declaration": true,
+        // "lib": ["esnext", "dom", "dom.iterable"],
         "sourceMap": true,
-        "outDir": "./dist",
+        "declaration": true,
+        "declarationMap": true,
+        "skipLibCheck": true,
+        "skipDefaultLibCheck": true,
+        "noErrorTruncation": true,
+        "importHelpers": true,
+        "moduleResolution": "node",
+        "resolveJsonModule": true,
+        "composite": true,
+        "outDir": "out",
+        "rootDir": ".",
+        "baseUrl": ".",
+
+        // "paths": {
+        //   "*": ["src/types/*", "../shared/src/types/*", "*"],
+        // },
+        "jsx": "react",
+        // "resolveJsonModule": true,
+        // "rootDir": ".",
+        // "outDir": "out",
+        // "plugins": [
+        //   {
+        //     "name": "ts-graphql-plugin",
+        //     "schema": "../../cmd/frontend/graphqlbackend/schema.graphql",
+        //     "tag": "gql",
+        //   },
+        // ],
+    
+        // "esModuleInterop": true,
+        // "declaration": true,
+        // "sourceMap": true,
+        // "outDir": "./dist",
         "lib": [
+            "esnext",
+            "es2015",
             "dom",
             "dom.iterable",
-            "es2015"
         ],
-        "target": "es5",
         "downlevelIteration": true,
-        "resolveJsonModule": true,
-        "baseUrl": ".",
+        // "resolveJsonModule": true,
+        // "baseUrl": ".",
         "paths": {
             "@src/*": ["./src/*"]
         }
     },
+
+    "watchOptions": {
+        "watchFile": "useFsEvents",
+        "watchDirectory": "useFsEvents",
+        "fallbackPolling": "dynamicPriority",
+      },
+
     "include": [
-        "src/**/*"
-    ]
+        "src/**/*",
+        "example/**/*"
+    ],
+
+    "exclude": ["out", "node_modules"],
 }

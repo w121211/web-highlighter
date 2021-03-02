@@ -6,10 +6,17 @@ module.exports = {
         path.resolve(basePath, 'src/index.ts')
     ],
     module: {
-        rules: [{
-            test: /.ts$/,
+        rules: [
+            {
+                test: /\.tsx?$/,
             loader: 'ts-loader',
-        }]
+            exclude: /node_modules/,
+        },
+        {
+            test: /\.mjs$/,
+            include: /node_modules/,
+            type: "javascript/auto",
+        }],
     },
     output: {
         path: path.resolve(basePath, 'dist'),
